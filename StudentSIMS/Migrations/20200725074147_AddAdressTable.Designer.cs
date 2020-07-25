@@ -3,54 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentSIMS.Data;
 
 namespace StudentSIMS.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20200725074147_AddAdressTable")]
+    partial class AddAdressTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0-preview.7.20365.15");
-
-            modelBuilder.Entity("StudentSIMS.Address", b =>
-                {
-                    b.Property<int>("addressId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("city")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("postcode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("street")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("streetNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("studentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("suburb")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("addressId");
-
-                    b.ToTable("Address");
-                });
 
             modelBuilder.Entity("StudentSIMS.Student", b =>
                 {
