@@ -4,18 +4,18 @@ using Microsoft.Extensions.Configuration;
 
 namespace StudentSIMS.Data
 {
-    public class StudentContext: DbContext
+    public class AddressContext: DbContext
     {
         // an empty constructor
-        public StudentContext() {}
+        public AddressContext() {}
 
         // base(options) calls the base class's constructor,
         // in this case, our base class is DbContext
-        public StudentContext(DbContextOptions<StudentContext> options) : base(options) {}
+        public AddressContext(DbContextOptions<AddressContext> options) : base(options) {}
 
-        // Use DbSet<Student> to query or read and 
-        // write information about A Student
-        public DbSet<Student> Student { get; set; }
+        // Use DbSet<Address> to query or read and 
+        // write information about an Address 
+        public DbSet<Address> Address { get; set; }
         public static System.Collections.Specialized.NameValueCollection AppSettings { get; }
 
         // configure the database to be used by this context
