@@ -70,10 +70,11 @@ namespace StudentSIMS.Controllers
         
 
         // Adds a new address for a student, using their student id.
-        // POST /api/addresses
-        [HttpPost]
-        public async Task<ActionResult<Address>> PostAddress(Address address)
+        // POST /api/addresses/{id}
+        [HttpPost("{id}")]
+        public async Task<ActionResult<Address>> PostAddress(int id, Address address)
         {
+            address.studentId = id;
             _context.Address.Add(address);
             await _context.SaveChangesAsync();
 
