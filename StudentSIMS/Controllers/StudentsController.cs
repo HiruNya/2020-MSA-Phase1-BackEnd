@@ -61,8 +61,10 @@ namespace StudentSIMS.Controllers
             _context.Entry(updateStudent).State = EntityState.Modified;
 
             updateStudent.firstName = student.firstName;
+            updateStudent.middleName = student.middleName;
             updateStudent.lastName = student.lastName;
             updateStudent.emailAddress = student.emailAddress;
+            updateStudent.phoneNumber = student.phoneNumber;
 
             try
             {
