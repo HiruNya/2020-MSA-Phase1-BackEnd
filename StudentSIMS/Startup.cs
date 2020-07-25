@@ -35,11 +35,20 @@ namespace StudentSIMS
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "StudentSIMS", Version = "v1"});
             });
             services.AddControllers();
+            
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials()
+            );
+            
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
